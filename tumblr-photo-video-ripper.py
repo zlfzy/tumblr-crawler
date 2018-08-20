@@ -182,9 +182,9 @@ class CrawlerScheduler(object):
 
     def _download_media(self, site, medium_type, start):
         current_folder = os.getcwd()
-        target_folder = os.path.join(current_folder, site)
+        target_folder = os.path.join(current_folder, site, medium_type)
         if not os.path.isdir(target_folder):
-            os.mkdir(target_folder)
+            os.makedirs(target_folder)
 
         base_url = "http://{0}.tumblr.com/api/read?type={1}&num={2}&start={3}"
         start = START
